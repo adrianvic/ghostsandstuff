@@ -28,15 +28,24 @@ public class GhostsAndStuff extends JavaPlugin {
         loadModules();
         logger.info("is starting.");
     }
-
     public void loadModules() {
-        PlayerListener rainbowChat = new RainbowChat(this);
+    	
+    	// AntiSpam
+    	if (this.getConfiguration().getBoolean("antiSpam", true)) {
+    	PlayerListener antiSpam = new AntiSpam(this);
+        pm.registerEvent(Type.PLAYER_CHAT, antiSpam, Priority.High, this);
+    	}
+        
+    	// RainbowChat
+        if (this.getConfiguration().getBoolean("rainbowChat", true)) {
+    	PlayerListener rainbowChat = new RainbowChat(this);
         logger.info("Loading module RainbowChat");
         pm.registerEvent(Type.PLAYER_CHAT, rainbowChat, Priority.High, this);
+        }
 
+        // SkibidiBlocker
         if (this.getConfiguration().getBoolean("skibidiBlocker", true)) {
             logger.info("Loading module SkibidiBlocker");
-
             List<String> words = this.getConfiguration().getStringList("skibidiBlockerWords", null);
             if (words == null || words.isEmpty()) {
                 logger.warning("SkibidiBlocker is enabled, but no words were provided. Disabling.");

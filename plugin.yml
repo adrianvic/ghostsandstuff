@@ -3,4 +3,4 @@ database: false
 main: gd.rf.adrianvictor.stuff.GhostsAndStuff
 name: GhostsAndStuff
 url: https://adrianvictor.rf.gd
-version: '1.0'
+version: '1.1'

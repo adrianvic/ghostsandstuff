@@ -1,6 +1,15 @@
+# Blocks duplicated messages
+antiSpam: true
+antiSpamLightning: false
+
+# Adds color code for rainbow
+rainbowChat: true
+rainbowChatModifier: 'z' # Single word you need to put after & to use the rainbow
 
 # Strikes a lightning to the player who says specific words
 skibidiBlocker: true
 skibidiBlockerCaseSensitive: false
+skibidiBlockerVerbose: true
+skibidiBlockerVerboseMessage: "This is a bad word."
 skibidiBlockerWords:
   - 'skibidi'

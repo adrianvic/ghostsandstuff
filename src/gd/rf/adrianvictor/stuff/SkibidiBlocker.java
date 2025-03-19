@@ -4,6 +4,8 @@ import java.util.List;
 import org.bukkit.event.player.PlayerChatEvent;
 import org.bukkit.event.player.PlayerListener;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import gd.rf.adrianvictor.lib.Color;
 import gd.rf.adrianvictor.lib.Log;
 
 public class SkibidiBlocker extends PlayerListener {
@@ -29,20 +31,18 @@ public class SkibidiBlocker extends PlayerListener {
         }
 
         boolean caseSensitive = plugin.getConfiguration().getBoolean("skibidiBlockerCaseSensitive", true);
-
         for (String blockedWord : blockedWords) {
+        	String finalMessage;
             if (!caseSensitive) {
-                if (message.toLowerCase().contains(blockedWord.toLowerCase())) {
-                    logger.info(event.getPlayer().getDisplayName() + " said a blocked word (case insensitive).");
-                    event.getPlayer().getWorld().strikeLightning(event.getPlayer().getLocation()); // Ensure it works
-                    return;
-                }
-            } else {
-                if (message.contains(blockedWord)) {
-                    logger.info(event.getPlayer().getDisplayName() + " said a blocked word (case sensitive).");
-                    event.getPlayer().getWorld().strikeLightning(event.getPlayer().getLocation());
-                    return;
-                }
+            	finalMessage = message.toLowerCase();
+            } else {            
+            	finalMessage = message;
+            }
+            if (message.contains(blockedWord.toLowerCase())) {
+            	if (plugin.getConfiguration().getBoolean("skibidiBlockerVerbose", true)) {
+            		event.getPlayer().sendMessage(Color.formatColors(plugin.getConfiguration().getString("skibidiBlockerVerboseMessage", "This is a bad word.")));
+            	}
+            	event.getPlayer().getWorld().strikeLightning(event.getPlayer().getLocation());
             }
         }
     }

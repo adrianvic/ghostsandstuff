@@ -19,7 +19,7 @@ public class RainbowChat extends PlayerListener {
         int index = 0;
         
         while (index < message.length()) {
-            int startIndex = message.indexOf("§z", index);
+            int startIndex = message.indexOf("§" + plugin.getConfiguration().getString("rainbowChatModifier", "z"), index);
             if (startIndex == -1) {
                 result.append(message.substring(index));
                 break;
