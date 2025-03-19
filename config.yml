@@ -1,0 +1,6 @@
+
+# Strikes a lightning to the player who says specific words
+skibidiBlocker: true
+skibidiBlockerCaseSensitive: false
+skibidiBlockerWords:
+  - 'skibidi'
