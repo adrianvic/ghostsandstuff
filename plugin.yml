@@ -1,6 +1,13 @@
 author: tenkuma
-database: false
 main: gd.rf.adrianvictor.stuff.GhostsAndStuff
 name: GhostsAndStuff
 url: https://adrianvictor.rf.gd
-version: '1.1'
+version: '0.5'
+commands:
+  gettime:
+    description: Prints the time for the current world.
+    usage: /gettime
+  permissions:
+    ghosts.gettime:
+      description: Allows the player to use the gettime command"
+      default: true

@@ -1,6 +1,7 @@
 package gd.rf.adrianvictor.stuff;
 
 import gd.rf.adrianvictor.lib.ConfigurationEx;
+import gd.rf.adrianvictor.stuff.command.*;
 import gd.rf.adrianvictor.lib.Log;
 import org.bukkit.event.Event.Priority;
 import org.bukkit.event.Event.Type;
@@ -25,6 +26,7 @@ public class GhostsAndStuff extends JavaPlugin {
         pm = this.getServer().getPluginManager();
         config = new ConfigurationEx(this, "config.yml", logger);
         config.loadConfig();
+        this.getCommand("gettime").setExecutor(new GetTime());
         loadModules();
         logger.info("is starting.");
     }

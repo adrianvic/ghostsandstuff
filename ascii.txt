@@ -1,0 +1,14 @@
+        XXXXXXXXX        
+     XXX         XXX     
+   XX               XX   
+  X                 XXX  
+ X     XXX         X   X 
+X     X   X         XXX X
+X    X     X            X
+X     X   X       XXXX  X
+ X     XXX  XXXXXX XX  X 
+  X     XXXX      X   X  
+   XX   XXXX    XX  XX   
+     XXX    XXXX XXX     
+        XXXXXXXXX        
+     ghosts 'n stuff     
