@@ -2,7 +2,7 @@ author: tenkuma
 main: gd.rf.adrianvictor.stuff.GhostsAndStuff
 name: GhostsAndStuff
 url: https://adrianvictor.rf.gd
-version: '0.5'
+version: '0.6'
 commands:
   gettime:
     description: Prints the time for the current world.

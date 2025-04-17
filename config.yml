@@ -6,6 +6,15 @@ antiSpamLightning: false
 rainbowChat: true
 rainbowChatModifier: 'z' # Single word you need to put after & to use the rainbow
 
+# Prevents users from broadcasting sensitive commands by forgetting the /
+commandTypoBlocker: true
+commandTypoBlockerCaseSensitive: false
+commandTypoBlockerVerbose: true
+commandTypoBlockerVerboseMessage: "&cYour message begins with a sensitive command, you may be leaking something sensitive by forgetting the slash!"
+commandTypoBlockerWords:
+  - 'login'
+  - 'register'
+
 # Strikes a lightning to the player who says specific words
 skibidiBlocker: true
 skibidiBlockerCaseSensitive: false

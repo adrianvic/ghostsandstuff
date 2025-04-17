@@ -44,12 +44,24 @@ public class GhostsAndStuff extends JavaPlugin {
         logger.info("Loading module RainbowChat");
         pm.registerEvent(Type.PLAYER_CHAT, rainbowChat, Priority.High, this);
         }
+        
+        // CommandTypoBlocker
+        if (this.getConfiguration().getBoolean("commandTypoBlocker", true)) {
+            logger.info("Loading module CommandTypoBlocker");
+            List<String> words = this.getConfiguration().getStringList("commandTypoBlockerWords", null);
+            if (words.isEmpty()) {
+                logger.warning("CommandTypoBlocker is enabled, but no words were provided. Disabling.");
+            } else {
+                PlayerListener commandTypoBlocker = new CommandTypoBlocker(this, logger);
+                pm.registerEvent(Type.PLAYER_CHAT, commandTypoBlocker, Priority.High, this);
+            }
+        }
 
         // SkibidiBlocker
         if (this.getConfiguration().getBoolean("skibidiBlocker", true)) {
             logger.info("Loading module SkibidiBlocker");
             List<String> words = this.getConfiguration().getStringList("skibidiBlockerWords", null);
-            if (words == null || words.isEmpty()) {
+            if (words.isEmpty()) {
                 logger.warning("SkibidiBlocker is enabled, but no words were provided. Disabling.");
             } else {
                 PlayerListener verboseWorldChange = new SkibidiBlocker(this, logger);
